@@ -1,0 +1,22 @@
+
+/target/
+**/*.rs.bk
+# For libraries, do not ignore Cargo.lock
+# Uncomment the next line only for binaries, not libraries
+# Cargo.lock
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

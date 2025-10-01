@@ -1,0 +1,29 @@
+[package]
+name = "komga-sdk"
+version = "1.23.4"
+authors = [
+  "OpenAPI Generator team and contributors",
+  "Piotr Boruc <piotr.m.boruc@gmail.com>",
+]
+description = "Komga REST API.  ## Reference  Check the API reference: - on the [Komga website](https://komga.org/docs/openapi/komga-api) - on any running Komga instance at `/swagger-ui.html` - on [GitHub](https://raw.githubusercontent.com/gotson/komga/refs/heads/master/komga/docs/openapi.json)  ## Authentication  Most endpoints require authentication. Authentication is done using either: - Basic Authentication - Passing an API Key in the `X-API-Key` header  ## Sessions  Upon successful authentication, a session is created, and can be reused.  - By default, a `KOMGA-SESSION` cookie is set via `Set-Cookie` response header. This works well for browsers and clients that can handle cookies. - If you specify a header `X-Auth-Token` during authentication, the session ID will be returned via this same header. You can then pass that header again for subsequent requests to reuse the session.  If you need to set the session cookie later on, you can call `/api/v1/login/set-cookie` with `X-Auth-Token`. The response will contain the `Set-Cookie` header.  ## Remember Me  During authentication, if a request parameter `remember-me` is passed and set to `true`, the server will also return a `komga-remember-me` cookie. This cookie will be used to login automatically even if the session has expired.  ## Logout  You can explicitly logout an existing session by calling `/api/logout`. This would return a `204`.  ## Deprecation  API endpoints marked as deprecated will be removed in the next major version."
+license = "MIT"
+edition = "2021"
+
+[package.metadata]
+maintainer = "Piotr Boruc <piotr.m.boruc@gmail.com>"
+
+[dependencies]
+serde = { version = "^1.0", features = ["derive"] }
+serde_json = "^1.0"
+serde_repr = "^0.1"
+url = "^2.5"
+reqwest = { version = "^0.12", default-features = false, features = [
+  "json",
+  "multipart",
+] }
+tokio = { version = "1.47.1", features = ["fs", "rt"] }
+
+[features]
+default = ["native-tls"]
+native-tls = ["reqwest/native-tls"]
+rustls-tls = ["reqwest/rustls-tls"]
