@@ -8,6 +8,10 @@ authors = [
 description = "Async Rust SDK for the Komga REST API, generated from OpenAPI spec. Supports all endpoints, file upload, and strong typing."
 license = "MIT"
 edition = "2021"
+repository = "https://github.com/wasilak/komga-sdk-rust"
+homepage = "https://github.com/wasilak/komga-sdk-rust"
+documentation = "https://komga.org/docs/openapi/komga-api/"
+readme = "README.md"
 
 [package.metadata]
 maintainer = "Piotr Boruc <piotr.m.boruc@gmail.com>"
